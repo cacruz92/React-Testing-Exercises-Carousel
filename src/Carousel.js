@@ -14,8 +14,10 @@ import Card from "./Card";
  * 
  * App --> Carousel --> Card
  */
- function Carousel({ photos, title }) {
+ function Carousel({ photos=[], title }) {
   const [currCardIdx, setCurrCardIdx] = useState(0);
+
+  if (photos.length === 0) return <div>No photos available</div>;
 
   const currCard = photos[currCardIdx];
   const total = photos.length;
